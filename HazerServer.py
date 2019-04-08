@@ -23,8 +23,8 @@ def userCallback(path, tags, args, source):
     
 def hazeCallback(path, tags, args, source):
     print "-Receiving: "+path+"\t"+tags+"\t",args[0], args[1]
-    dmxControl.setHazeIntensity(50)
-    dmxControl.setFanSpeed(50)
+    dmxControl.setHazeIntensity(args[0])
+    dmxControl.setFanSpeed(args[1])
 
 def quitCallback(path, tags, args, source):
     # don't do this at home (or it'll quit blender)
