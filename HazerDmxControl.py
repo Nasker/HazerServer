@@ -12,6 +12,7 @@ class HazerDmxControl:
         
     def _calcAndSend(self, channel, percentage):
         self.dmx.setChannel(channel, self._percentToDMXRange(percentage))
+        print("Sending to channel: ", channel ," percentage: ", percentage ," dmx range:", self._percentToDMXRange(percentage) )
         self.dmx.render()   
         
     def setHazeIntensity(self, hazePercentage):

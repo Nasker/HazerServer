@@ -21,17 +21,21 @@ def userCallback(path, tags, args, source):
     print ("-Receiving: "+path+"\t"+tags+"\t",args)
     
     
-def hazeCallback(path, tags, args, source):
-    print "-Receiving: "+path+"\t"+tags+"\t",args[0], args[1]
+def hazeIntensityCallback(path, tags, args, source):
+    print "-Receiving: "+path+"\t"+tags+"\t",args[0]
     dmxControl.setHazeIntensity(args[0])
-    dmxControl.setFanSpeed(args[1])
+    
+def hazeSpeedCallback(path, tags, args, source):
+    print "-Receiving: "+path+"\t"+tags+"\t",args[0]
+    dmxControl.setFanSpeed(args[0])
 
 def quitCallback(path, tags, args, source):
     # don't do this at home (or it'll quit blender)
     global run
     run = False
 
-server.addMsgHandler( "/haze/set", hazeCallback )
+server.addMsgHandler( "/haze/intensity", hazeIntensityCallback )
+server.addMsgHandler( "/haze/speed", hazeSpeedCallback )
 server.addMsgHandler( "/quit", quitCallback )
 
 def eachFrame():
