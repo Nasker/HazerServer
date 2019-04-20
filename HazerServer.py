@@ -4,7 +4,7 @@ from multiprocessing import Process
 from time import sleep
 from HazerDmxControl import HazerDmxControl
 
-server = OSC.OSCServer( ("0.0.0.0", 9000) )
+server = OSC.OSCServer( ("0.0.0.0", 3383) )
 server.timeout = 0
 run = True
 
